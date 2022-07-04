@@ -33,6 +33,14 @@ const useStyles = makeStyles({
       cursor: 'pointer',
     },
   },
+  selectedLink: {
+    margin: 0,
+    fontFamily: 'Inter',
+    fontWight: '600',
+    margin: '1rem 2rem 1rem 1rem',
+    color: 'white',
+    borderBottom: 'solid 1px #5658dd',
+  },
   flexBox: {
     display: 'flex',
     justifyContent: 'center',
@@ -43,20 +51,21 @@ const useStyles = makeStyles({
 
 function NavBar() {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <Typography variant="h4" className={classes.title}>
         Sell<span className={classes.span}>here</span>
       </Typography>
       <div className={classes.flexBox}>
+        <Typography className={classes.selectedLink} variant="h6">
+          Rent
+        </Typography>
         <Typography className={classes.subText} variant="h6">
           Sell
         </Typography>
         <Typography className={classes.subText} variant="h6">
           Buy
-        </Typography>
-        <Typography className={classes.subText} variant="h6">
-          Rent
         </Typography>
         <Typography className={classes.subText} variant="h6">
           Manage Property
