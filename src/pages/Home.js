@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 
 function Home() {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <Typography className={classes.heading} variant="h4">

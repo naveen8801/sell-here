@@ -65,7 +65,17 @@ const useStyles = makeStyles({
   },
 });
 
-function FilterBar() {
+function FilterBar(props) {
+  const {
+    filterType,
+    setFilterType,
+    filterPrice,
+    setFilterPrice,
+    filterTime,
+    setFilterTime,
+    filterLocation,
+    setFilterLocation,
+  } = props;
   const classes = useStyles();
   return (
     <Card className={classes.root}>
