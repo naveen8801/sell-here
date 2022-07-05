@@ -11,11 +11,11 @@ const useStyles = makeStyles({
     alignItems: 'center',
   },
   content: {
-    width: '75%',
+    width: '80%',
   },
   heading: {
-    marginTop: '0.7rem',
-    marginBottom: '0.7rem',
+    marginTop: '0.5rem',
+    marginBottom: '0.5rem',
     fontFamily: 'Inter',
     fontWeight: '700',
     color: 'white',
@@ -26,7 +26,7 @@ function Home() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography className={classes.heading} variant="h4">
+      <Typography className={classes.heading} variant="h5">
         Search Properties To Rent Here.
       </Typography>
       <div className={classes.content}>

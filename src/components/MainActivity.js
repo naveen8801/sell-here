@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
 import FilterBar from './FilterBar';
 import { data } from '../data';
 import { isDOMComponent } from 'react-dom/test-utils';
@@ -11,12 +11,34 @@ const useStyles = makeStyles({
     width: '100%',
     padding: '1rem',
   },
-  content: {},
   heading: {
     marginTop: '0.5rem',
     fontFamily: 'Inter',
     fontWeight: '700',
     color: 'white',
+  },
+  subtext: {
+    fontFamily: 'Inter',
+    fontWeight: '500',
+    color: 'white',
+    fontSize: '15px',
+  },
+  btn: {
+    color: 'white',
+    fontFamily: 'Inter',
+    fontWeight: '700',
+    backgroundColor: '#5658dd',
+    fontSize: '11px',
+    '&:hover': {
+      backgroundColor: '#5658dd',
+    },
+    marginLeft: '0.5rem',
+  },
+  flexBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: '40px',
   },
 });
 
@@ -28,19 +50,13 @@ function MainActivity() {
   const [filterTime, setFilterTime] = useState('Any');
   const [filterLocation, setFilterLocation] = useState('Any');
 
-  function mergeArrayObjects(arr1, arr2) {
-    if (arr1.length === 0) {
-      return arr2;
-    }
-    if (arr2.length === 0) {
-      return arr1;
-    }
-    return arr1.map((item, i) => {
-      if (item.id === arr2[i].id) {
-        return Object.assign({}, item, arr2[i]);
-      }
-    });
-  }
+  const clearFilterHandler = () => {
+    setFilterType('Any');
+    setFilterPrice('Any');
+    setFilterTime('Any');
+    setFilterLocation('Any');
+    setMainData(data);
+  };
 
   const handleFilter = () => {
     if (
@@ -111,17 +127,20 @@ function MainActivity() {
         setFilterLocation={setFilterLocation}
         handleFilter={handleFilter}
       />
-      <PropertyListView
-        filterType={filterType}
-        setFilterType={setFilterType}
-        filterPrice={filterPrice}
-        setFilterPrice={setFilterPrice}
-        filterTime={filterTime}
-        setFilterTime={setFilterTime}
-        filterLocation={filterLocation}
-        setFilterLocation={setFilterLocation}
-        results={Maindata}
-      />
+      <div className={classes.flexBox}>
+        <Typography variant="h7" className={classes.subtext}>
+          {Maindata.length} Results Found
+        </Typography>
+        {filterLocation !== 'Any' ||
+        filterPrice !== 'Any' ||
+        filterTime !== 'Any' ||
+        filterType !== 'Any' ? (
+          <Button onClick={clearFilterHandler} className={classes.btn}>
+            Clear Filters
+          </Button>
+        ) : null}
+      </div>
+      <PropertyListView results={Maindata} />
     </div>
   );
 }

@@ -13,8 +13,12 @@ const useStyles = makeStyles({
     minWidth: '260px',
     height: '300px',
     backgroundColor: '#25282c',
-    margin: '0 0.7rem 0.7rem 0',
+    margin: '0 1rem 1rem 0',
     padding: '0.5rem',
+    '&:hover': {
+      cursor: 'pointer',
+      border: '0.5px solid #5658dd ',
+    },
   },
   img: {
     width: '100%',
@@ -38,7 +42,6 @@ const useStyles = makeStyles({
     fontFamily: 'Inter',
     fontWeight: '600',
     color: 'white',
-    // textAlign: 'center',
   },
   likeIcon: {
     color: '#5658dd',
