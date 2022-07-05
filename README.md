@@ -1,4 +1,4 @@
-### News.HC
+### SellHere
 
 A website to get rent homes.
 Deployed Link - <a href="https://sell-here.netlify.app/"> Website </a>
