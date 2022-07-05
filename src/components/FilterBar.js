@@ -118,7 +118,7 @@ function FilterBar(props) {
     setFilterTime,
     filterLocation,
     setFilterLocation,
-    handleSearch,
+    handleFilter,
   } = props;
   const classes = useStyles();
   return (
@@ -247,7 +247,7 @@ function FilterBar(props) {
           ))}
         </Select>
       </FormControl>
-      <Button onClick={handleSearch} className={classes.btn}>
+      <Button onClick={handleFilter} className={classes.btn}>
         Search
       </Button>
     </Card>

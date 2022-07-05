@@ -42,7 +42,7 @@ function MainActivity() {
     });
   }
 
-  const handleSearch = () => {
+  const handleFilter = () => {
     if (
       filterType === 'Any' &&
       filterPrice === 'Any' &&
@@ -109,9 +109,19 @@ function MainActivity() {
         setFilterTime={setFilterTime}
         filterLocation={filterLocation}
         setFilterLocation={setFilterLocation}
-        handleSearch={handleSearch}
+        handleFilter={handleFilter}
       />
-      <PropertyListView resultsCount={Maindata.length} />
+      <PropertyListView
+        filterType={filterType}
+        setFilterType={setFilterType}
+        filterPrice={filterPrice}
+        setFilterPrice={setFilterPrice}
+        filterTime={filterTime}
+        setFilterTime={setFilterTime}
+        filterLocation={filterLocation}
+        setFilterLocation={setFilterLocation}
+        results={Maindata}
+      />
     </div>
   );
 }
