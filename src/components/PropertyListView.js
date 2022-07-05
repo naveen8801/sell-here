@@ -15,9 +15,10 @@ const useStyles = makeStyles({
   },
 });
 
-function PropertyListView() {
+function PropertyListView(props) {
+  const { resultsCount } = props;
   const classes = useStyles();
-  return <div>PropertyListView</div>;
+  return <div>{resultsCount}</div>;
 }
 
 export default PropertyListView;
