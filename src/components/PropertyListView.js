@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Typography } from '@material-ui/core';
+import PropertyCard from './PropertyCard';
 
 const useStyles = makeStyles({
   root: {
@@ -10,8 +11,8 @@ const useStyles = makeStyles({
   content: {
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     flexWrap: 'wrap',
   },
   subtext: {
@@ -36,6 +37,7 @@ const useStyles = makeStyles({
     flexDirection: 'row',
     alignItems: 'center',
     height: '40px',
+    marginBottom: '0.5rem',
   },
 });
 
@@ -75,7 +77,17 @@ function PropertyListView(props) {
           </Button>
         ) : null}
       </div>
-      <div className={classes.content}></div>
+      <div className={classes.content}>
+        {results.map((item, i) => (
+          <PropertyCard
+            key={i}
+            imgUrl={item.img}
+            price={item.price}
+            name={item.name}
+            location={item.location}
+          />
+        ))}
+      </div>
     </div>
   );
 }
