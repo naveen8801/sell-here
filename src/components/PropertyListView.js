@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Typography } from '@material-ui/core';
+import { Button, CircularProgress, Typography } from '@material-ui/core';
 import PropertyCard from './PropertyCard';
 
 const useStyles = makeStyles({
@@ -22,21 +22,27 @@ const useStyles = makeStyles({
 });
 
 function PropertyListView(props) {
-  const { results } = props;
+  const { results, loading } = props;
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        {results.map((item, i) => (
-          <PropertyCard
-            key={i}
-            imgUrl={item.img}
-            price={item.price}
-            name={item.name}
-            location={item.location}
-          />
-        ))}
+        {loading ? (
+          <CircularProgress style={{ color: '#5658dd' }} />
+        ) : (
+          <>
+            {results.map((item, i) => (
+              <PropertyCard
+                key={i}
+                imgUrl={item.img}
+                price={item.price}
+                name={item.name}
+                location={item.location}
+              />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

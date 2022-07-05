@@ -49,6 +49,7 @@ function MainActivity() {
   const [filterPrice, setFilterPrice] = useState('Any');
   const [filterTime, setFilterTime] = useState('Any');
   const [filterLocation, setFilterLocation] = useState('Any');
+  const [loading, setLoading] = useState(false);
 
   const clearFilterHandler = () => {
     setFilterType('Any');
@@ -59,6 +60,7 @@ function MainActivity() {
   };
 
   const handleFilter = () => {
+    setLoading(true);
     if (
       filterType === 'Any' &&
       filterPrice === 'Any' &&
@@ -112,6 +114,7 @@ function MainActivity() {
 
       setMainData(merge);
     }
+    setLoading(false);
   };
 
   return (
@@ -140,7 +143,7 @@ function MainActivity() {
           </Button>
         ) : null}
       </div>
-      <PropertyListView results={Maindata} />
+      <PropertyListView loading={loading} results={Maindata} />
     </div>
   );
 }
